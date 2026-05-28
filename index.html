@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новостройки в Мариуполе под 2% — Инвестиции и Жизнь у моря</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        /* Кастомный светлый скроллбар в зеленых тонах */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f4fbf7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #a7f3d0;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #34d399;
+        }
+    </style>
+</head>
+<body class="bg-[#f4fbf7] text-emerald-950 antialiased overflow-x-hidden">
+
+    <!-- NAV BAR -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-emerald-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-emerald-500/30">М</div>
+                <div>
+                    <span class="font-extrabold text-lg tracking-tight uppercase block leading-none text-emerald-950">Мариуполь</span>
+                    <span class="text-[10px] text-emerald-700 tracking-wider uppercase font-semibold">Освоение новых территорий</span>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8 text-sm font-semibold text-emerald-800">
+                <a href="#about" class="hover:text-emerald-600 transition">О городе</a>
+                <a href="#mortgage" class="hover:text-emerald-600 transition">Ипотека 2%</a>
+                <a href="#calc" class="hover:text-emerald-600 transition">Калькулятор</a>
+                <a href="#objects" class="hover:text-emerald-600 transition">Объекты</a>
+                <a href="#guarantee" class="hover:text-emerald-600 transition">Безопасность</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <a href="tel:+78000000000" class="hidden lg:block text-right">
+                    <span class="block text-sm font-bold text-emerald-950">+7 (923) 310 07 08</span>
+                    <span class="text-xs text-emerald-600 flex items-center justify-end font-medium">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block mr-1.5 animate-pulse"></span> Перезваниваем за 1 мин
+                    </span>
+                </a>
+                <button onclick="openModal('callback')" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs md:text-sm font-bold px-5 py-3 rounded-xl transition shadow-lg shadow-emerald-500/20 active:scale-95">
+                    Получить подборку
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (светлый премиум) -->
+    <section class="relative bg-gradient-to-br from-emerald-50 via-white to-emerald-100/50 text-emerald-950 overflow-hidden py-12 lg:py-20 border-b border-emerald-100">
+        <!-- Легкий декоративный фон -->
+        <div class="absolute inset-0 opacity-5 mix-blend-overlay bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80');"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Левая колонка: Офферы -->
+            <div class="lg:col-span-7 space-y-8">
+                <!-- Переключатель вкладки (Для Жизни / Для Инвестиций) -->
+                <div class="inline-flex p-1 bg-emerald-100/60 rounded-xl backdrop-blur-md">
+                    <button id="btn-tab-invest" onclick="switchHeroTab('invest')" class="px-5 py-2.5 rounded-lg text-sm font-bold transition duration-300 bg-emerald-600 text-white shadow">
+                        📊 Для инвесторов
+                    </button>
+                    <button id="btn-tab-life" onclick="switchHeroTab('life')" class="px-5 py-2.5 rounded-lg text-sm font-bold transition duration-300 text-emerald-800 hover:text-emerald-950">
+                        🏖️ Для жизни у моря
+                    </button>
+                </div>
+
+                <!-- Контент инвестора -->
+                <div id="hero-invest" class="space-y-6">
+                    <div class="inline-block bg-emerald-200 text-emerald-950 text-xs font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-md shadow-sm">
+                        🔥 Рост стоимости от 35% годовых
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-emerald-950">
+                        Пассивный доход <br class="hidden sm:inline">в Мариуполе под <span class="text-emerald-600 underline decoration-wavy decoration-2">2% годовых</span>
+                    </h1>
+                    <p class="text-emerald-900/80 text-lg max-w-xl leading-relaxed">
+                        Инвестируйте в новые территории у моря с господдержкой. Доходность от аренды от 55 000 ₽ в месяц при ипотечном платеже всего 18 000 ₽. Сделки полностью дистанционны и безопасны.
+                    </p>
+                </div>
+
+                <!-- Контент для жизни -->
+                <div id="hero-life" class="space-y-6 hidden">
+                    <div class="inline-block bg-emerald-500 text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-md shadow-sm">
+                        🌊 Собственная квартира у моря
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-emerald-950">
+                        Ваша квартира <br class="hidden sm:inline">у пляжа в Мариуполе под <span class="text-emerald-600">ипотеку 2%</span>
+                    </h1>
+                    <p class="text-emerald-900/80 text-lg max-w-xl leading-relaxed">
+                        Переезжайте в развивающийся курортный город по госпрограмме. Прописка и гражданство РФ, современные ЖК комфорт-класса, новые школы, сады и парки в шаговой доступности.
+                    </p>
+                </div>
+
+                <!-- Ключевые поинты -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-4 border-t border-emerald-100">
+                    <div>
+                        <span class="block text-2xl sm:text-3xl font-extrabold text-emerald-600">от 2%</span>
+                        <span class="text-xs text-emerald-700 block">Льготная госпрограмма</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl sm:text-3xl font-extrabold text-emerald-600">ФЗ-214</span>
+                        <span class="text-xs text-emerald-700 block">Безопасные эскроу-счета</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl sm:text-3xl font-extrabold text-emerald-600">от 10%</span>
+                        <span class="text-xs text-emerald-700 block">Взнос (можно маткапитал)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Правая колонка: Изображение новостройки и мини-форма -->
+            <div class="lg:col-span-5 space-y-6">
+                <!-- Карта с реальной новостройкой -->
+                <div class="relative rounded-3xl overflow-hidden border border-emerald-200/50 shadow-xl group">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Современная новостройка в Мариуполе" class="w-full h-56 object-cover object-center group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/45 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                        <div>
+                            <p class="text-xs text-emerald-200 font-bold uppercase tracking-wider">Приморский бульвар</p>
+                            <h3 class="font-bold text-sm sm:text-base text-white leading-tight">ЖК «Изумрудный Берег»</h3>
+                        </div>
+                        <span class="bg-emerald-600 text-white font-bold text-xs px-2.5 py-1 rounded-lg">Сдача 2026 г.</span>
+                    </div>
+                </div>
+
+                <!-- Быстрая форма -->
+                <div class="bg-white rounded-3xl p-6 shadow-xl relative border border-emerald-100">
+                    <div class="absolute -top-3 -right-3 bg-red-500 text-white font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider animate-bounce">
+                        Осталось 9 квот
+                    </div>
+                    <h3 class="text-lg font-bold mb-1 text-emerald-950">Скачать каталог ТОП-5 ЖК с ценами</h3>
+                    <p class="text-emerald-800/75 text-xs mb-4">Получите расчет доходности и свободные планировки прямо в WhatsApp.</p>
+                    
+                    <form onsubmit="handleFormSubmit(event, 'Каталог с главного экрана')" class="space-y-3">
+                        <div>
+                            <input type="text" required placeholder="Ваше имя" class="w-full px-4 py-3 bg-[#f4fbf7] border border-emerald-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:bg-white transition text-sm">
+                        </div>
+                        <div>
+                            <input type="tel" required placeholder="+7 (999) 999-99-99" class="w-full px-4 py-3 bg-[#f4fbf7] border border-emerald-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:bg-white transition text-sm">
+                        </div>
+                        
+                        <div class="pt-1">
+                            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-emerald-600/20 transition active:scale-95 flex items-center justify-center space-x-2 text-sm">
+                                <span>Получить подборку в WhatsApp</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- РАЗВИТИЕ НОВЫХ ТЕРРИТОРИЙ -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-emerald-600 font-bold uppercase tracking-wider text-sm">Мастер-план развития</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-emerald-950 mt-2">Почему Мариуполь — главная инвест-площадка 2026 года?</h2>
+                <p class="text-emerald-800/80 mt-4 text-base sm:text-lg">Город перестраивается по современным градостроительным стандартам. Капитальные вложения создают стабильный и высокий рост рынка недвижимости.</p>
+            </div>
+
+            <!-- Сетка преимуществ с детальным разбором -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Карта 1 -->
+                <div class="bg-[#f4fbf7]/60 rounded-3xl p-6 border border-emerald-100 hover:shadow-xl hover:bg-white transition group duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-6 font-bold text-xl group-hover:bg-emerald-600 group-hover:text-white transition">01</div>
+                    <h3 class="text-xl font-bold mb-3 text-emerald-950">Свободная экономическая зона</h3>
+                    <p class="text-emerald-800/85 text-sm leading-relaxed mb-4">Бизнес получает нулевые налоги на прибыль и имущество. Это привлекает в город крупнейших девелоперов, банки и ритейлеров со всей страны.</p>
+                    <div class="text-emerald-600 font-semibold text-xs flex items-center cursor-pointer hover:underline">
+                        Узнать подробнее об СЭЗ <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                </div>
+
+                <!-- Карта 2 -->
+                <div class="bg-[#f4fbf7]/60 rounded-3xl p-6 border border-emerald-100 hover:shadow-xl hover:bg-white transition group duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-6 font-bold text-xl group-hover:bg-emerald-600 group-hover:text-white transition">02</div>
+                    <h3 class="text-xl font-bold mb-3 text-emerald-950">Курортный статус и климат</h3>
+                    <p class="text-emerald-800/85 text-sm leading-relaxed mb-4">Реконструкция набережной, пляжей и Приморского парка преобразует город в ключевой азовский курорт. Аренда квартир у моря востребована круглый год.</p>
+                    <div class="text-emerald-600 font-semibold text-xs flex items-center cursor-pointer hover:underline">
+                        Посмотреть план набережной <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                </div>
+
+                <!-- Карта 3 -->
+                <div class="bg-[#f4fbf7]/60 rounded-3xl p-6 border border-emerald-100 hover:shadow-xl hover:bg-white transition group duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-6 font-bold text-xl group-hover:bg-emerald-600 group-hover:text-white transition">03</div>
+                    <h3 class="text-xl font-bold mb-3 text-emerald-950">Федеральная трасса Азовского кольца</h3>
+                    <p class="text-emerald-800/85 text-sm leading-relaxed mb-4">Запуск скоростной дороги соединит Мариуполь с Крымом и Ростовом-на-Дону четырехполосной магистралью. Превращает город в ключевой хаб юга.</p>
+                    <div class="text-emerald-600 font-semibold text-xs flex items-center cursor-pointer hover:underline">
+                        Карта Азовского Кольца <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ИНТЕРАКТИВНЫЙ ИПОТЕЧНЫЙ И ИНВЕСТ-КАЛЬКУЛЯТОР (СВЕТЛЫЙ) -->
+    <section id="calc" class="py-20 bg-[#eefaf2] text-emerald-950 relative border-t border-b border-emerald-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Левая колонка: Калькулятор -->
+                <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-emerald-100 shadow-xl shadow-emerald-100/40">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold mb-8 text-emerald-950">Калькулятор льготной ипотеки 2%</h2>
+                    
+                    <div class="space-y-6">
+                        <!-- Стоимость квартиры -->
+                        <div>
+                            <div class="flex justify-between text-sm font-semibold mb-2">
+                                <span class="text-emerald-800">Стоимость недвижимости</span>
+                                <span class="text-emerald-600 font-bold" id="val-price">5 500 000 ₽</span>
+                            </div>
+                            <input type="range" id="input-price" min="3000000" max="15000000" step="100000" value="5500000" oninput="calculateMortgage()" class="w-full accent-emerald-500 bg-emerald-100 h-2 rounded-lg appearance-none cursor-pointer">
+                            <div class="flex justify-between text-[10px] text-emerald-600 mt-1">
+                                <span>3 млн</span>
+                                <span>15 млн</span>
+                            </div>
+                        </div>
+
+                        <!-- Первоначальный взнос -->
+                        <div>
+                            <div class="flex justify-between text-sm font-semibold mb-2">
+                                <span class="text-emerald-800">Первоначальный взнос (от 10%)</span>
+                                <span class="text-emerald-600 font-bold" id="val-deposit">550 000 ₽ (10%)</span>
+                            </div>
+                            <input type="range" id="input-deposit" min="10" max="90" step="5" value="10" oninput="calculateMortgage()" class="w-full accent-emerald-500 bg-emerald-100 h-2 rounded-lg appearance-none cursor-pointer">
+                            <div class="flex justify-between text-[10px] text-emerald-600 mt-1">
+                                <span>10%</span>
+                                <span>90%</span>
+                            </div>
+                        </div>
+
+                        <!-- Срок кредита -->
+                        <div>
+                            <div class="flex justify-between text-sm font-semibold mb-2">
+                                <span class="text-emerald-800">Срок кредитования</span>
+                                <span class="text-emerald-600 font-bold" id="val-years">20 лет</span>
+                            </div>
+                            <input type="range" id="input-years" min="5" max="30" step="1" value="20" oninput="calculateMortgage()" class="w-full accent-emerald-500 bg-emerald-100 h-2 rounded-lg appearance-none cursor-pointer">
+                            <div class="flex justify-between text-[10px] text-emerald-600 mt-1">
+                                <span>5 лет</span>
+                                <span>30 лет</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Правая колонка: Результаты -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-emerald-600 font-bold uppercase tracking-wider text-xs">Программа субсидирования</span>
+                    <h3 class="text-3xl font-extrabold leading-tight text-emerald-950">Ваш платеж по ставке 2% годовых</h3>
+                    
+                    <div class="bg-white border border-emerald-100 rounded-2xl p-6 space-y-4 shadow-sm">
+                        <div class="flex justify-between items-center border-b border-emerald-50 pb-3">
+                            <span class="text-emerald-800 text-sm">Сумма кредита:</span>
+                            <span class="font-bold text-lg text-emerald-950" id="res-credit">4 950 000 ₽</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-emerald-50 pb-3">
+                            <span class="text-emerald-800 text-sm">Ваш платеж в месяц:</span>
+                            <span class="font-extrabold text-2xl text-emerald-600" id="res-payment">25 041 ₽</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-emerald-800 text-sm">Переплата за всё время:</span>
+                            <span class="font-bold text-emerald-950" id="res-overpay">1 060 000 ₽</span>
+                        </div>
+                    </div>
+
+                    <!-- Инвестиционное сравнение -->
+                    <div class="bg-emerald-100/40 border border-emerald-100 rounded-2xl p-6">
+                        <h4 class="font-bold text-emerald-800 text-sm mb-3 uppercase tracking-wider">📊 Окупаемость арендой:</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-emerald-700">Средняя аренда в Мариуполе:</span>
+                                <span class="font-bold text-emerald-950">~ 50 000 ₽/мес</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-emerald-700">Ипотечный платеж:</span>
+                                <span class="font-bold text-rose-600" id="res-payment-sub">- 25 041 ₽/мес</span>
+                            </div>
+                            <div class="border-t border-emerald-200/60 my-2 pt-2 flex justify-between text-base font-bold">
+                                <span class="text-emerald-950">Чистая прибыль инвестора:</span>
+                                <span class="text-emerald-600" id="res-profit">+ 24 959 ₽/мес</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="openModal('calc-apply')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-emerald-500/30 transition active:scale-95 text-center block text-sm sm:text-base">
+                        Подать заявку на одобрение 2%
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- КАТАЛОГ ОБЪЕКТОВ С ФИЛЬТРОМ -->
+    <section id="objects" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
+                <div>
+                    <span class="text-emerald-600 font-bold uppercase tracking-wider text-sm">Актуальные предложения</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-emerald-950 mt-2">Топ-3 ЖК готовых к сдаче</h2>
+                </div>
+                <!-- Фильтры -->
+                <div class="flex mt-6 md:mt-0 space-x-2 bg-white p-1 rounded-xl border border-emerald-100 text-xs sm:text-sm font-semibold">
+                    <button onclick="filterObjects('all')" id="filter-all" class="px-4 py-2 rounded-lg bg-emerald-600 text-white shadow">Все объекты</button>
+                    <button onclick="filterObjects('sea')" id="filter-sea" class="px-4 py-2 rounded-lg text-emerald-700 hover:text-emerald-950 transition">У моря</button>
+                    <button onclick="filterObjects('center')" id="filter-center" class="px-4 py-2 rounded-lg text-emerald-700 hover:text-emerald-950 transition">Центр города</button>
+                </div>
+            </div>
+
+            <!-- Сетка ЖК -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="objects-grid">
+                
+                <!-- ЖК 1 -->
+                <div class="bg-white rounded-3xl overflow-hidden border border-emerald-100 shadow-sm hover:shadow-xl transition duration-300" data-category="sea">
+                    <div class="relative h-60 bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=80" alt="ЖК Приморский Пассаж" class="w-full h-full object-cover">
+                        <span class="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md">У моря • Сдача Q3 2026</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-emerald-950">ЖК «Приморский Пассаж»</h3>
+                        <p class="text-emerald-800/70 text-xs mb-4">Приморский район, 5 минут пешком до пляжа и парка.</p>
+                        
+                        <div class="space-y-2 border-t border-b border-emerald-50 py-4 my-4 text-xs text-emerald-800">
+                            <div class="flex justify-between"><span>Студии:</span> <span class="font-bold text-emerald-950">от 3.5 млн ₽</span></div>
+                            <div class="flex justify-between"><span>1-комнатные:</span> <span class="font-bold text-emerald-950">от 5.2 млн ₽</span></div>
+                            <div class="flex justify-between"><span>Ипотека 2%:</span> <span class="font-bold text-emerald-600">от 14 500 ₽/мес</span></div>
+                        </div>
+
+                        <button onclick="openModal('object-details', 'ЖК Приморский Пассаж')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition text-sm shadow-md shadow-emerald-600/15">
+                            Смотреть планировки
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ЖК 2 -->
+                <div class="bg-white rounded-3xl overflow-hidden border border-emerald-100 shadow-sm hover:shadow-xl transition duration-300" data-category="center">
+                    <div class="relative h-60 bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600&q=80" alt="ЖК Ленинградский Квартал" class="w-full h-full object-cover">
+                        <span class="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md">Центр • Сдача Q4 2026</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-emerald-950">ЖК «Ленинградский Квартал»</h3>
+                        <p class="text-emerald-800/70 text-xs mb-4">Жовтневый район, проспект Ленина. Закрытая территория.</p>
+                        
+                        <div class="space-y-2 border-t border-b border-emerald-50 py-4 my-4 text-xs text-emerald-800">
+                            <div class="flex justify-between"><span>1-комнатные:</span> <span class="font-bold text-emerald-950">от 5.8 млн ₽</span></div>
+                            <div class="flex justify-between"><span>2-комнатные:</span> <span class="font-bold text-emerald-950">от 7.9 млн ₽</span></div>
+                            <div class="flex justify-between"><span>Ипотека 2%:</span> <span class="font-bold text-emerald-600">от 22 170 ₽/мес</span></div>
+                        </div>
+
+                        <button onclick="openModal('object-details', 'ЖК Ленинградский Квартал')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition text-sm shadow-md shadow-emerald-600/15">
+                            Смотреть планировки
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ЖК 3 -->
+                <div class="bg-white rounded-3xl overflow-hidden border border-emerald-100 shadow-sm hover:shadow-xl transition duration-300" data-category="sea">
+                    <div class="relative h-60 bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="ЖК Набережный Парк" class="w-full h-full object-cover">
+                        <span class="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md">У моря • Сдача Q1 2027</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-emerald-950">ЖК «Набережный Парк»</h3>
+                        <p class="text-emerald-800/70 text-xs mb-4">Приморский район, панорамный вид на Азовское море.</p>
+                        
+                        <div class="space-y-2 border-t border-b border-emerald-50 py-4 my-4 text-xs text-emerald-800">
+                            <div class="flex justify-between"><span>Студии:</span> <span class="font-bold text-emerald-950">от 3.9 млн ₽</span></div>
+                            <div class="flex justify-between"><span>1-комнатные:</span> <span class="font-bold text-emerald-950">от 5.5 млн ₽</span></div>
+                            <div class="flex justify-between"><span>Ипотека 2%:</span> <span class="font-bold text-emerald-600">от 16 200 ₽/мес</span></div>
+                        </div>
+
+                        <button onclick="openModal('object-details', 'ЖК Набережный Парк')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition text-sm shadow-md shadow-emerald-600/15">
+                            Смотреть планировки
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- БЕЗОПАСНОСТЬ СДЕЛКИ (СВЕТЛЫЙ) -->
+    <section id="guarantee" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-emerald-100/70 via-emerald-50 to-emerald-100/70 text-emerald-950 rounded-[32px] p-8 sm:p-12 lg:p-16 relative overflow-hidden border border-emerald-200/50 shadow-md">
+                <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none">
+                    <svg class="w-96 h-96 text-emerald-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                
+                <div class="relative z-10 max-w-3xl">
+                    <span class="text-emerald-700 font-bold uppercase tracking-wider text-xs">Гарантия безопасности</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 mb-6 text-emerald-950">Как защищены ваши деньги на новых территориях?</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-emerald-600 text-white p-2 rounded-lg mt-1">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-emerald-950">Закон ФЗ-214 и эскроу-счета</h4>
+                                <p class="text-emerald-900/80 text-sm mt-1">Все застройщики работают строго в правовом поле РФ. Застройщик не получит ваши деньги, пока дом не будет успешно введен в эксплуатацию.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-emerald-600 text-white p-2 rounded-lg mt-1">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-emerald-950">Крупнейшие банки-партнеры</h4>
+                                <p class="text-emerald-900/80 text-sm mt-1">Программу 2% финансируют Промсвязьбанк (ПСБ), ВТБ и Сбербанк. Вы подписываете договор в отделении банка в вашем родном городе.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-emerald-600 text-white p-2 rounded-lg mt-1">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-emerald-950">Страхование жилья государством</h4>
+                                <p class="text-emerald-900/80 text-sm mt-1">Любая новостройка застрахована государственным фондом развития территорий, что полностью исключает риски долгостроя.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ИНТЕРАКТИВНЫЙ КВИЗ -->
+    <section class="py-20 bg-[#eefaf2]">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-emerald-100">
+                <div class="text-center mb-8">
+                    <span class="text-emerald-600 font-bold uppercase tracking-wider text-xs">Пройдите квиз</span>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-emerald-950 mt-1">Узнайте ваши шансы на ипотеку 2%</h3>
+                    <p class="text-emerald-800/70 text-sm mt-2">Ответьте на 3 простых вопроса и получите предварительное решение за 2 минуты.</p>
+                </div>
+
+                <!-- Контейнер квиза -->
+                <div id="quiz-container">
+                    <!-- Вопрос 1 -->
+                    <div id="quiz-step-1" class="space-y-6">
+                        <div class="flex justify-between items-center text-xs font-bold text-emerald-600 uppercase">
+                            <span>Вопрос 1 из 3</span>
+                            <span>33% выполнено</span>
+                        </div>
+                        <div class="h-1.5 w-full bg-emerald-50 rounded-full overflow-hidden">
+                            <div class="h-full bg-emerald-600 w-1/3"></div>
+                        </div>
+                        <h4 class="text-lg sm:text-xl font-bold text-emerald-950">Какова ваша цель покупки жилья?</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <button onclick="nextQuizStep(2, 'Для личного проживания / переезда')" class="p-4 border border-emerald-100 hover:border-emerald-500 rounded-xl hover:bg-emerald-50/20 text-left font-semibold text-emerald-800 hover:text-emerald-900 transition flex items-center justify-between">
+                                <span>🏠 Переезд / Свое жилье</span>
+                                <span class="text-emerald-400">➔</span>
+                            </button>
+                            <button onclick="nextQuizStep(2, 'Сдача в аренду и пассивный доход')" class="p-4 border border-emerald-100 hover:border-emerald-500 rounded-xl hover:bg-emerald-50/20 text-left font-semibold text-emerald-800 hover:text-emerald-900 transition flex items-center justify-between">
+                                <span>📈 Инвестиции / Аренда</span>
+                                <span class="text-emerald-400">➔</span>
+                            </button>
+                            <button onclick="nextQuizStep(2, 'Перепродажа с ростом цены')" class="p-4 border border-emerald-100 hover:border-emerald-500 rounded-xl hover:bg-emerald-50/20 text-left font-semibold text-emerald-800 hover:text-emerald-900 transition flex items-center justify-between">
+                                <span>💰 Перепродажа</span>
+                                <span class="text-emerald-400">➔</span>
+                            </button>
+                            <button onclick="nextQuizStep(2, 'Сохранение капитала от инфляции')" class="p-4 border border-emerald-100 hover:border-emerald-500 rounded-xl hover:bg-emerald-50/20 text-left font-semibold text-emerald-800 hover:text-emerald-900 transition flex items-center justify-between">
+                                <span>🛡️ Сохранить сбережения</span>
+                                <span class="text-emerald-400">➔</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 2 -->
+                    <div id="quiz-step-2" class="space-y-6 hidden">
+                        <div class="flex justify-between items-center text-xs font-bold text-emerald-600 uppercase">
+                            <span>Вопрос 2 из 3</span>
+                            <span>66% выполнено</span>
+                        </div>
+                        <div class="h-1.5 w-full bg-emerald-50 rounded-full overflow-hidden">
+                            <div class="h-full bg-emerald-600 w-2/3"></div>
+                        </div>
+                        <h4 class="text-lg sm:text-xl font-bold text-emerald-950">Какой бюджет или первоначальный взнос вы планируете?</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <button onclick="nextQuizStep(3, 'Только маткапитал')" class="p-4 border border-emerald-100 hover:border-emerald-500 rounded-xl hover:bg-emerald-50/20 text-left font-semibold text-emerald-800 hover:text-emerald-900 transition flex items-center justify-between">
+                                <span>👶 Только материнский капитал</span>
+                                <span class="text-emerald-400">➔</span>
+                            </button>
+                            <button onclick="nextQuizStep(3, 'До 1 000 000 ₽')" class="p-4 border border-emerald-100 hover:border-emerald-500 rounded-xl hover:bg-emerald-50/20 text-left font-semibold text-emerald-800 hover:text-emerald-900 transition flex items-center justify-between">
+                                <span>💳 Взнос до 1 млн рублей</span>
+                                <span class="text-emerald-400">➔</span>
+                            </button>
+                            <button onclick="nextQuizStep(3, 'От 1 000 000 до 3 000 000 ₽')" class="p-4 border border-emerald-100 hover:border-emerald-500 rounded-xl hover:bg-emerald-50/20 text-left font-semibold text-emerald-800 hover:text-emerald-900 transition flex items-center justify-between">
+                                <span>💵 Взнос 1 - 3 млн рублей</span>
+                                <span class="text-emerald-400">➔</span>
+                            </button>
+                            <button onclick="nextQuizStep(3, 'Покупка за 100% оплату (наличные)')" class="p-4 border border-emerald-100 hover:border-emerald-500 rounded-xl hover:bg-emerald-50/20 text-left font-semibold text-emerald-800 hover:text-emerald-900 transition flex items-center justify-between">
+                                <span>🏦 100% оплата (без ипотеки)</span>
+                                <span class="text-emerald-400">➔</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 3 / Получение результата -->
+                    <div id="quiz-step-3" class="space-y-6 hidden">
+                        <div class="flex justify-between items-center text-xs font-bold text-emerald-600 uppercase">
+                            <span>Готово на 99%</span>
+                            <span>Финальный шаг</span>
+                        </div>
+                        <div class="h-1.5 w-full bg-emerald-50 rounded-full overflow-hidden">
+                            <div class="h-full bg-emerald-600 w-full"></div>
+                        </div>
+                        <h4 class="text-lg sm:text-xl font-bold text-emerald-950">Ура! У вас высокая вероятность одобрения под 2%. Куда прислать расчет?</h4>
+                        
+                        <form onsubmit="handleFormSubmit(event, 'Результаты квиза')" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-emerald-700 uppercase mb-1">Номер телефона</label>
+                                <input type="tel" required placeholder="+7 (999) 999-99-99" class="w-full px-4 py-3 bg-[#f4fbf7] border border-emerald-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:bg-white transition text-sm">
+                            </div>
+                            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-emerald-500/20 transition active:scale-95 text-center text-sm sm:text-base">
+                                🔥 Получить расчет и решение банка в WhatsApp
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Экран Успеха -->
+                    <div id="quiz-success" class="space-y-6 text-center py-8 hidden">
+                        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-3xl">✓</div>
+                        <h4 class="text-2xl font-bold text-emerald-950">Заявка успешно отправлена!</h4>
+                        <p class="text-emerald-800/80 text-sm max-w-md mx-auto">Наш ведущий кредитный специалист уже формирует варианты планировок и расчет одобряемости. Мы свяжемся с вами в течение 10 минут в WhatsApp.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (СВЕТЛЫЙ) -->
+    <footer class="bg-emerald-50 text-emerald-900/80 py-12 border-t border-emerald-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-bold text-lg">М</div>
+                        <span class="font-extrabold text-emerald-950 text-md tracking-tight uppercase">Мариуполь 2%</span>
+                    </div>
+                    <p class="text-xs text-emerald-800/70">Официальный брокер по новостройкам Мариуполя и новым территориям.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold text-emerald-950 text-sm mb-4">Навигация</h5>
+                    <ul class="space-y-2 text-xs text-emerald-800/85">
+                        <li><a href="#about" class="hover:text-emerald-600 transition">О Мариуполе</a></li>
+                        <li><a href="#calc" class="hover:text-emerald-600 transition">Рассчитать ипотеку</a></li>
+                        <li><a href="#objects" class="hover:text-emerald-600 transition">Новостройки комфорт-класса</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-emerald-950 text-sm mb-4">Юридическая информация</h5>
+                    <ul class="space-y-2 text-xs text-emerald-800/85">
+                        <li>ФЗ-214, продажа через счета Эскроу.</li>
+                        <li>Лицензии партнеров: ПАО Сбербанк лиц. №1481, ПАО Промсвязьбанк лиц. №3251.</li>
+                        <li>Предложение не является публичной офертой.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-emerald-950 text-sm mb-4">Контакты</h5>
+                    <ul class="space-y-2 text-xs text-emerald-800/85">
+                        <li>Адрес: г. Мариуполь, проспект Ленина, д. 85</li>
+                        <li class="font-bold text-emerald-950">+7 (800) 555-35-35</li>
+                        <li>Режим работы: Ежедневно с 9:00 до 21:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-emerald-200/50 pt-8 text-center text-[10px] text-emerald-800/60">
+                &copy; 2026 Агентство недвижимости «Мариуполь Инвест». Все права защищены.
+            </div>
+        </div>
+    </footer>
+
+    <!-- МОДАЛЬНЫЕ ОКНА (СВЕТЛЫЙ ФОН) -->
+    <div id="modal-container" class="fixed inset-0 z-50 flex items-center justify-center bg-emerald-950/20 backdrop-blur-sm px-4 hidden">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl transition duration-300 scale-95 transform" id="modal-box">
+            <!-- Кнопка закрытия -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-emerald-400 hover:text-emerald-600 text-2xl font-semibold">&times;</button>
+            
+            <div id="modal-content">
+                <!-- Динамический контент -->
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS FOR INTERACTION -->
+    <script>
+        let quizAnswers = {};
+
+        function switchHeroTab(tab) {
+            const btnInvest = document.getElementById('btn-tab-invest');
+            const btnLife = document.getElementById('btn-tab-life');
+            const contentInvest = document.getElementById('hero-invest');
+            const contentLife = document.getElementById('hero-life');
+
+            if (tab === 'invest') {
+                btnInvest.className = "px-5 py-2.5 rounded-lg text-sm font-bold transition duration-300 bg-emerald-600 text-white shadow";
+                btnLife.className = "px-5 py-2.5 rounded-lg text-sm font-bold transition duration-300 text-emerald-800 hover:text-emerald-950";
+                contentInvest.classList.remove('hidden');
+                contentLife.classList.add('hidden');
+            } else {
+                btnLife.className = "px-5 py-2.5 rounded-lg text-sm font-bold transition duration-300 bg-emerald-600 text-white shadow";
+                btnInvest.className = "px-5 py-2.5 rounded-lg text-sm font-bold transition duration-300 text-emerald-800 hover:text-emerald-950";
+                contentLife.classList.remove('hidden');
+                contentInvest.classList.add('hidden');
+            }
+        }
+
+        function calculateMortgage() {
+            const price = parseFloat(document.getElementById('input-price').value);
+            const depositPercent = parseFloat(document.getElementById('input-deposit').value);
+            const years = parseFloat(document.getElementById('input-years').value);
+
+            const depositRub = Math.round(price * (depositPercent / 100));
+            const creditSum = price - depositRub;
+
+            const annualRate = 2; 
+            const monthlyRate = (annualRate / 12) / 100;
+            const months = years * 12;
+
+            let monthlyPayment = 0;
+            if (creditSum > 0) {
+                monthlyPayment = creditSum * (monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+            }
+
+            const totalPayed = monthlyPayment * months;
+            const overpay = totalPayed - creditSum;
+            
+            const averageRent = 50000;
+            const profit = averageRent - monthlyPayment;
+
+            document.getElementById('val-price').innerText = price.toLocaleString('ru-RU') + " ₽";
+            document.getElementById('val-deposit').innerText = depositRub.toLocaleString('ru-RU') + " ₽ (" + depositPercent + "%)";
+            document.getElementById('val-years').innerText = years + " лет";
+
+            // Исправленная строка: заменена скобка с 'ru-RU'] на 'ru-RU')
+            document.getElementById('res-credit').innerText = creditSum.toLocaleString('ru-RU') + " ₽";
+            document.getElementById('res-payment').innerText = Math.round(monthlyPayment).toLocaleString('ru-RU') + " ₽";
+            document.getElementById('res-overpay').innerText = Math.round(overpay).toLocaleString('ru-RU') + " ₽";
+
+            document.getElementById('res-payment-sub').innerText = "- " + Math.round(monthlyPayment).toLocaleString('ru-RU') + " ₽/мес";
+            document.getElementById('res-profit').innerText = (profit > 0 ? "+ " : "") + Math.round(profit).toLocaleString('ru-RU') + " ₽/мес";
+        }
+
+        function filterObjects(category) {
+            const grid = document.getElementById('objects-grid');
+            const items = grid.getElementsByClassName('bg-white');
+
+            const btnAll = document.getElementById('filter-all');
+            const btnSea = document.getElementById('filter-sea');
+            const btnCenter = document.getElementById('filter-center');
+
+            const activeClass = "px-4 py-2 rounded-lg bg-emerald-600 text-white shadow";
+            const inactiveClass = "px-4 py-2 rounded-lg text-emerald-700 hover:text-emerald-950 transition";
+
+            btnAll.className = inactiveClass;
+            btnSea.className = inactiveClass;
+            btnCenter.className = inactiveClass;
+
+            if (category === 'all') btnAll.className = activeClass;
+            if (category === 'sea') btnSea.className = activeClass;
+            if (category === 'center') btnCenter.className = activeClass;
+
+            for (let i = 0; i < items.length; i++) {
+                const item = items[i];
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            }
+        }
+
+        function nextQuizStep(step, answerValue) {
+            if (step === 2) {
+                quizAnswers.target = answerValue;
+                document.getElementById('quiz-step-1').classList.add('hidden');
+                document.getElementById('quiz-step-2').classList.remove('hidden');
+            } else if (step === 3) {
+                quizAnswers.budget = answerValue;
+                document.getElementById('quiz-step-2').classList.add('hidden');
+                document.getElementById('quiz-step-3').classList.remove('hidden');
+            }
+        }
+
+        function handleFormSubmit(event, source) {
+            event.preventDefault();
+            const form = event.target;
+            const inputs = form.getElementsByTagName('input');
+            let phone = "";
+            let name = "";
+
+            for (let i = 0; i < inputs.length; i++) {
+                if (inputs[i].type === 'tel') phone = inputs[i].value;
+                if (inputs[i].type === 'text') name = inputs[i].value;
+            }
+
+            console.log("Новый лид:", { name, phone, source, quizAnswers });
+
+            if (source === 'Результаты квиза') {
+                document.getElementById('quiz-step-3').classList.add('hidden');
+                document.getElementById('quiz-success').classList.remove('hidden');
+            } else {
+                showSuccessModal();
+            }
+        }
+
+        function openModal(type, extraData = '') {
+            const container = document.getElementById('modal-container');
+            const box = document.getElementById('modal-box');
+            const content = document.getElementById('modal-content');
+
+            container.classList.remove('hidden');
+            setTimeout(() => box.classList.remove('scale-95'), 10);
+
+            if (type === 'callback') {
+                content.innerHTML = `
+                    <h3 class="text-2xl font-extrabold mb-2 text-emerald-950">Получить персональную подборку</h3>
+                    <p class="text-emerald-800/80 text-sm mb-6">Наши специалисты свяжутся с вами и отправят файлы в удобный мессенджер.</p>
+                    <form onsubmit="handleFormSubmit(event, 'Заказ звонка с шапки')" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-emerald-800 uppercase mb-1">Имя</label>
+                            <input type="text" required placeholder="Иван" class="w-full px-4 py-3 bg-[#f4fbf7] border border-emerald-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-emerald-800 uppercase mb-1">Телефон</label>
+                            <input type="tel" required placeholder="+7 (999) 999-99-99" class="w-full px-4 py-3 bg-[#f4fbf7] border border-emerald-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                        </div>
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl shadow-lg transition">Получить подборку</button>
+                    </form>
+                `;
+            } else if (type === 'calc-apply') {
+                content.innerHTML = `
+                    <h3 class="text-2xl font-extrabold mb-2 text-emerald-950">Заявка на ипотеку 2%</h3>
+                    <p class="text-emerald-800/80 text-sm mb-6">Заполните анкету для отправки в 3 крупнейших банка-партнера в Мариуполе.</p>
+                    <form onsubmit="handleFormSubmit(event, 'Заявка из калькулятора')" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-emerald-800 uppercase mb-1">Имя</label>
+                            <input type="text" required placeholder="Константин" class="w-full px-4 py-3 bg-[#f4fbf7] border border-emerald-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-emerald-800 uppercase mb-1">Телефон</label>
+                            <input type="tel" required placeholder="+7 (999) 999-99-99" class="w-full px-4 py-3 bg-[#f4fbf7] border border-emerald-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                        </div>
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl shadow-lg transition">Подать документы</button>
+                    </form>
+                `;
+            } else if (type === 'object-details') {
+                content.innerHTML = `
+                    <h3 class="text-2xl font-extrabold mb-2 text-emerald-950">Планировки в ${extraData}</h3>
+                    <p class="text-emerald-800/80 text-sm mb-6">Мы отправим вам планировки всех свободных квартир с ценами и шахматкой в течение 5 минут.</p>
+                    <form onsubmit="handleFormSubmit(event, 'Запрос по объекту: ' + '${extraData}')" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-emerald-800 uppercase mb-1">Ваш телефон (WhatsApp)</label>
+                            <input type="tel" required placeholder="+7 (999) 999-99-99" class="w-full px-4 py-3 bg-[#f4fbf7] border border-emerald-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                        </div>
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl shadow-lg transition">Скачать планировки в PDF</button>
+                    </form>
+                `;
+            }
+        }
+
+        function closeModal() {
+            const container = document.getElementById('modal-container');
+            const box = document.getElementById('modal-box');
+            box.classList.add('scale-95');
+            setTimeout(() => container.classList.add('hidden'), 200);
+        }
+
+        function showSuccessModal() {
+            const content = document.getElementById('modal-content');
+            content.innerHTML = `
+                <div class="text-center py-6">
+                    <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-3xl mb-4">✓</div>
+                    <h3 class="text-2xl font-extrabold mb-2 text-emerald-950">Заявка принята!</h3>
+                    <p class="text-emerald-800/80 text-sm mb-6">Мы свяжемся с вами в WhatsApp в течение ближайших 10 минут с готовым решением.</p>
+                    <button onclick="closeModal()" class="w-full bg-emerald-950 hover:bg-emerald-900 text-white font-bold py-3 rounded-xl transition">Закрыть</button>
+                </div>
+            `;
+        }
+
+        window.onload = function() {
+            calculateMortgage();
+        }
+    </script>
+</body>
+</html>
